@@ -9,6 +9,7 @@ export type ProductCardProps = ProductProps & {
 type StateProps = {
     products: ProductCardProps[];
     add: (product: ProductProps) => void;
+    remove: (product: ProductCardProps) => void;
 }
 
 export const useCartStore = create<StateProps>((set) => ({
@@ -16,5 +17,9 @@ export const useCartStore = create<StateProps>((set) => ({
 
     add: (product: ProductProps) => set((state) => ({
         products: cartInMemory.add(state.products, product),
+    })),
+
+    remove: (product: ProductCardProps) => set((state) => ({
+        products: cartInMemory.remove(state.products, product),
     })),
 }));
