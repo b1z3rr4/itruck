@@ -12,6 +12,7 @@ type StateProps = {
     products: ProductCardProps[];
     add: (product: ProductProps) => void;
     remove: (product: ProductCardProps) => void;
+    clear: () => void;
 }
 
 export const useCartStore = create(
@@ -25,6 +26,10 @@ export const useCartStore = create(
         
             remove: (product: ProductCardProps) => set((state) => ({
                 products: cartInMemory.remove(state.products, product),
+            })),
+
+            clear: () => set(() => ({
+                products: []
             })),
         }), {
             name: 'itruck-cart',
