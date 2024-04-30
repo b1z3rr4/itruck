@@ -11,7 +11,7 @@ import { useState } from "react";
 import { Text, View, ScrollView, Alert, Linking } from "react-native";
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
-const PHONE_NUMBER = "";
+const PHONE_NUMBER = "5527996848634";
 
 export default function Cart() {
     const [address, setAddress] = useState('');
@@ -40,7 +40,7 @@ export default function Cart() {
             .concat(`\n 📍 Endereço: ${address}`)
             .concat(`\n 💸 Total: ${total}`);
 
-        Linking.openURL(`http://api.whatsapp.com/send?phone=${PHONE_NUMBER}&text=${message}`)
+        Linking.openURL(`https://wa.me/${PHONE_NUMBER}?text=${message}`)
 
         clear();
         navigation.goBack();
